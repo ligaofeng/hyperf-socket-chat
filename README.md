@@ -1,6 +1,6 @@
 # 介绍
 
-基于Hyperf项目(https://github.com/hyperf/hyperf)官方样例(https://github.com/hyperf/hyperf-skeleton)开发的一个基于socket.io与前端socket.io.js(https://socket.io/)库Web IM聊天demo
+基于Hyperf项目官方样例(https://github.com/hyperf/hyperf-skeleton)开发的一个基于socket.io与前端socket.io.js(https://socket.io/)库Web IM聊天demo
 
 # 安装环境要求
 安装说明与https://github.com/hyperf/hyperf-skeleton上要求的一致
@@ -48,10 +48,14 @@ Stack trace:
 ![hyperf 报错信息](http://pcms.jianmovie.com/1600936770847.jpg "报错信息")
 
 目前初步判断是测试hyperf异步队列功能，而引入`https://hyperf.wiki/2.0/#/zh-cn/async-queue`库，
-此库与Redis协程客户端库`https://hyperf.wiki/2.0/#/zh-cn/redis`有冲突。
-如果使用不到Redis协程客户端库直接composer remove hyperf/async-queue
-然后把config/autoload/async_queue.php中的return中的配置给注释掉，
-再把config/autoload/processes.php中的引入的Hyperf\AsyncQueue\Process\ConsumerProcess::class给注释掉，
+此库与Redis协程客户端库`https://hyperf.wiki/2.0/#/zh-cn/redis`有冲突。    
+
+如果使用不到Redis协程客户端库直接composer remove hyperf/async-queue    
+
+然后把config/autoload/async_queue.php中的return中的配置给注释掉    
+
+再把config/autoload/processes.php中的引入的Hyperf\AsyncQueue\Process\ConsumerProcess::class给注释掉    
+
 再把/app/Controller/WebSocketController.php中注解引入的QueueService相关的代码，包括onSay方法中的相关代码给注释掉即可。
 
 
