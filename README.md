@@ -31,7 +31,7 @@ socket协议监听的是9502端口：
 `http://127.0.0.1:9501/view/socket2`
 
 以上两个Demo样例正常情况如下：
-![hyperf 聊天页面Demo](http://pcms.jianmovie.com/1600936293417.jpg "聊天页面Demo")
+![image](https://github.com/ligaofeng/hyperf-socket-chat/blob/master/public/1600936293417.jpg)
 
 特别提示：hyperf启动后，在shell上的启动页面，目前可能偶尔会报类似的如下错误，此错误会导致长连接服务暂时断开：
 ````
@@ -45,7 +45,8 @@ Stack trace:
 #5 /Users/mac/www/ktalk/runtime/container/proxy/App_Controller_WebSocketController.proxy.php(100): Hyperf\SocketIOServer\Socket->join()
 #6 /Users/mac/www/ktalk/runtime/container/proxy/App_Controller_WebSocketController.proxy.php(69): App\Controller\WebSocketC in /Users/mac/www/ktalk/vendor/hyperf/redis/src/RedisConnection.php on line 67
 ````
-![hyperf 报错信息](http://pcms.jianmovie.com/1600936770847.jpg "报错信息")
+
+![image](https://github.com/ligaofeng/hyperf-socket-chat/blob/master/public/1600936770847.jpg)
 
 目前初步判断是测试hyperf异步队列功能，而引入`https://hyperf.wiki/2.0/#/zh-cn/async-queue`库，
 此库与Redis协程客户端库`https://hyperf.wiki/2.0/#/zh-cn/redis`有冲突。    
