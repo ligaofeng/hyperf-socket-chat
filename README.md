@@ -1,6 +1,6 @@
 # 介绍
 
-基于Hyperf项目官方样例(https://github.com/hyperf/hyperf-skeleton)开发的一个基于socket.io与前端socket.io.js(https://socket.io/)库Web IM聊天demo
+基于Hyperf项目官方样例( https://github.com/hyperf/hyperf-skeleton )开发的一个基于socket.io与前端socket.io.js( https://socket.io )库Web IM聊天demo
 
 # 安装环境要求
 安装说明与https://github.com/hyperf/hyperf-skeleton上要求的一致
