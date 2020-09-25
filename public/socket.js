@@ -16,7 +16,7 @@ Date.prototype.Format = function (fmt) {
 
 
 function socketIo(ws, token, room_id) {
-    var socket = io('ws://127.0.0.1:9502', {
+    var socket = io(ws, {
         query: {token: token},
         transports: ["websocket"],
         forceNew: false
@@ -26,15 +26,21 @@ function socketIo(ws, token, room_id) {
         console.log(socket.connected);
         console.log('Socket Id:' + socket.id);
 
-        ////发送event类型的消息给服务端，给所有客户端广播消息
+        //监听服务端发送的event消息
+        socket.on('event', function (result) {
+            console.log('接收到的event数据：');
+            console.log(result);
 
+            var jsonData = JSON.parse(result);
+            $('#messages').append('<li>' + jsonData.data.time + ' ' + jsonData.data.msg + '</li>');
+        });
+
+        //发送event类型的消息给服务端，给房间内的人(除了自己)广播消息
         var emitData = '{"type":1,"data":{"room_id":' + room_id + '}}';
         socket.emit('event', emitData, function (result) {
             console.log('event result：');
             console.log(result);
         });
-
-
     });
 
     $('form').submit(function (e) {
@@ -61,14 +67,6 @@ function socketIo(ws, token, room_id) {
         return false;
     });
 
-//监听服务端发送的event消息
-    socket.on('event', function (result) {
-        console.log('接收到的event数据：');
-        console.log(result);
-
-        var jsonData = JSON.parse(result);
-        $('#messages').append('<li>' + jsonData.data.time + ' ' + jsonData.data.msg + '</li>');
-    });
 
     socket.on('disconnect', function () {
         console.log("与服务连接断开");
