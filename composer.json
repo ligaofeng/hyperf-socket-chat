@@ -24,7 +24,6 @@
         "hyperf/logger": "~2.0.0",
         "hyperf/memory": "~2.0.0",
         "hyperf/process": "~2.0.0",
-        "hyperf/redis": "~2.0.0",
         "hyperf/database": "~2.0.0",
         "hyperf/json-rpc": "~2.0.0",
         "hyperf/rpc": "~2.0.0",
@@ -43,7 +42,8 @@
         "hyperf/task": "^2.0",
         "firebase/php-jwt": "^5.2",
         "hyperf/session": "^2.0",
-        "hyperf/async-queue": "^2.0"
+        "hyperf/async-queue": "^2.0",
+        "hyperf/redis": "dev-master"
     },
     "require-dev": {
         "swoole/ide-helper": "^4.5",
